@@ -1,10 +1,10 @@
 ﻿cmake_minimum_required(VERSION 2.8) #Проверка версии CMake.
 
-set(PROJECT_NAME A&DA) #Создаем обычную локальную переменную с именем проекта
+set(PROJECT_NAME ADA) #Создаем обычную локальную переменную с именем проекта
 project(${PROJECT_NAME}) # Название проекта
 
-set(convex_hull_main vector_hull_main) #Переменная с именем библиотеки
-set(convex_hull_lib vector_hull_lib) #Переменная с именем библиотеки
+set(convex_hull_main convex_hull_main) #Переменная с именем библиотеки
+set(convex_hull_lib convex_hull_lib) #Переменная с именем библиотеки
 
 
 
