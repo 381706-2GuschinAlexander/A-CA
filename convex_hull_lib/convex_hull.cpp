@@ -32,8 +32,26 @@ std::vector<Point> createHull(const std::vector<Point>& vec) {
   std::vector<Point> st;
   st.push_back(*(it++));
   st.push_back(*(it++));
-  for (it; it != tmp.end(); ++it) {
-  ///
+  auto st_iter_first = st.end() - 2; 
+  auto st_iter_second = st.end() - 1;
+
+  for (it; it != tmp.end();it) {
+    st_iter_first = st.end() - 2;
+    st_iter_second = st.end() - 1;
+
+    double ul = st_iter_second->x -st_iter_first->x;
+    double ur = it->x - st_iter_first->x;
+    double dl = st_iter_second->y - st_iter_first->y;
+    double dr = it->y - st_iter_first->y;
+    if (ul * dr - ur * dl > 0)
+      st.push_back(*(it++));
+    else if (st.size() >= 3) {
+      st.pop_back();
+      continue;
+    } else {
+      st.pop_back();
+      st.push_back(*(it++));
+    }
   }
   return st;
 }
