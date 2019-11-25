@@ -26,7 +26,7 @@ std::vector<Point> createHull(const std::vector<Point>& vec) {
   std::vector<Point> tmp(vec);
   setFirstPoint(tmp);
   setAngle(tmp);
-  std::sort(tmp.begin() + 1, tmp.end(), AngleComp());
+  dHeapSort(tmp, 2);
   auto it = tmp.begin();
 
   std::vector<Point> st;
@@ -35,7 +35,7 @@ std::vector<Point> createHull(const std::vector<Point>& vec) {
   auto st_iter_first = st.end() - 2; 
   auto st_iter_second = st.end() - 1;
 
-  for (it; it != tmp.end();it) {
+  while (it != tmp.end()) {
     st_iter_first = st.end() - 2;
     st_iter_second = st.end() - 1;
 

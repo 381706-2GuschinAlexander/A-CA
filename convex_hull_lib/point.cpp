@@ -22,11 +22,10 @@ Point& Point::operator=(const Point& A) {
   return *this;
 }
 
-bool AngleComp::operator()(const Point& A,
-                               const Point& B) {
-  if (A.angle < B.angle)
+bool Point::operator<(const Point& A) {
+  if (angle < A.angle)
     return true;
-  else if (A.angle == B.angle && A.length < B.length)
+  else if (angle == A.angle && length < A.length)
     return true;
   else
     return false;
