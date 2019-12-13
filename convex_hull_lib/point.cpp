@@ -30,3 +30,4 @@ bool Point::operator<(const Point& A) {
   else
     return false;
 }
+
